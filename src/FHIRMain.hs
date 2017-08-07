@@ -121,19 +121,18 @@ fhirMain = do
              . xmlParse' inf
              $ inputContent
       mainElement = docContent (posInNewCxt inf Nothing) xmlDoc                        -- mainElement :: Content i
-  errLn "Got Here"
-  logLn $ show mainElement
-  exitWith ExitSuccess
-  case runParser schema [mainElement] of
+      parsedPair = runParser schema [mainElement]
+  case parsedPair of
     (Left msg,_) ->    errLn msg
-    (Right v,[]) -> do logLn "-- Parse Success!"
-                       logLn "\n-- ---------------\n"
-                       logLn $ show v
-                       logLn "\n-- ---------------\n"
-                       let decls = convert (mkEnvironment inf v emptyEnv) v
-                           haskl = Haskell.mkModule inf v decls
-                           doc   = ppModule simpleNameConverter haskl
-                       hPutStrLn outputHandler $ render doc
+    (Right tmSchema,[]) -> do                          -- tmSchema :: Text.XML.HaXml.Schema.XSDTypeModel.Schema
+      logLn "-- Parse Success!"
+      logLn "\n-- Text.XML.HaXml.Schema.XSDTypeModel.Schema ---------------\n"
+      logLn $ show tmSchema
+      logLn "\n-- ---------------\n"
+      let decls = convert (mkEnvironment inf tmSchema emptyEnv) tmSchema
+          haskl = Haskell.mkModule inf tmSchema decls
+          doc   = ppModule simpleNameConverter haskl
+      hPutStrLn outputHandler $ render doc
     (Right v,_)  -> do logLn "-- Parse incomplete!"
                        logLn "\n-- ---------------\n"
                        logLn $ show v
