@@ -1,4 +1,4 @@
-import Lib (inc)
+import FHIRMain
 
 main :: IO ()
-main = print . inc $ (41 :: Int)
+main = fhirMain
