@@ -1,5 +1,5 @@
 {-# Language OverloadedStrings #-}
-{-| Time-stamp: <2017-08-01 16:46:41 robert>
+{-| Time-stamp: <2017-08-07 20:50:01 robert>
 
 Module      : FHIRMain
 Copyright   : (c) Robert Lee, 2017
@@ -81,11 +81,11 @@ import Text.XML.HaXml.Namespaces (resolveAllNames ,qualify, nullNamespace)
 import Text.XML.HaXml.Parse      (xmlParse')
 import Text.XML.HaXml.Util       (docContent)
 import Text.XML.HaXml.Posn       (posInNewCxt)
-
-import Text.XML.HaXml.Schema.Parse
+import Text.XML.HaXml.ShowXmlLazy
+import Parser
 import Text.XML.HaXml.Schema.Environment
 import Text.XML.HaXml.Schema.NameConversion
-import Text.XML.HaXml.Schema.TypeConversion
+import Text.XML.HaXml.Schema.TypeConversion (convert)
 import Text.XML.HaXml.Schema.PrettyHaskell
 import qualified Text.XML.HaXml.Schema.HaskellTypeModel as Haskell
 import Text.ParserCombinators.Poly
@@ -118,7 +118,7 @@ fhirMain = do
   outputHandler <- if outf == "-" then pure stdout else openFile outf WriteMode
   let xmlDoc = resolveAllNames qualify                                                 -- xmlDoc :: Document i
              . either (error . ("not XML:\n"++)) id
-             . xmlParse' inf
+             . xmlParse' ""
              $ inputContent
       mainElement = docContent (posInNewCxt inf Nothing) xmlDoc                        -- mainElement :: Content i
       parsedPair = runParser schema [mainElement]
@@ -127,7 +127,7 @@ fhirMain = do
     (Right tmSchema,[]) -> do                          -- tmSchema :: Text.XML.HaXml.Schema.XSDTypeModel.Schema
       logLn "-- Parse Success!"
       logLn "\n-- Text.XML.HaXml.Schema.XSDTypeModel.Schema ---------------\n"
-      logLn $ show tmSchema
+      -- hPutStrLn outputHandler $ show tmSchema
       logLn "\n-- ---------------\n"
       let decls = convert (mkEnvironment inf tmSchema emptyEnv) tmSchema
           haskl = Haskell.mkModule inf tmSchema decls

@@ -29,8 +29,10 @@ library
   ghc-options:       -Wall -O0
   hs-source-dirs:    src
   exposed-modules:   FHIRMain
+                   , Parser
   build-depends:     base >= 4.8 && < 5
                    , HaXml
+                   , containers
                    , pretty
                    , polyparse
 
