@@ -674,4 +674,4 @@ name = P p
                    isIdChar c = isAlphaNum c || c `elem` "_-.:"
 -- Based on xsd:Name
 -- Pattern: [\i-[:]][\c-[:]]*
--- White Space: collapse 
+-- White Space: collapse             -- Must add in future!
