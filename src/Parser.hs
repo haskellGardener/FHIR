@@ -672,3 +672,6 @@ name = P p
             | otherwise  = Failure (c:s) ("Bad character: "++show c)
              where isIdInit c = isAlpha c || c == '_'
                    isIdChar c = isAlphaNum c || c `elem` "_-.:"
+-- Based on xsd:Name
+-- Pattern: [\i-[:]][\c-[:]]*
+-- White Space: collapse 
