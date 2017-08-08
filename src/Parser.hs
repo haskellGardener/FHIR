@@ -5,10 +5,10 @@ module Parser
   ) where
 
 import Data.Char (isSpace)
-import Data.List (isPrefixOf)
+import Data.List (isPrefixOf, dropWhileEnd)
 import Data.Monoid (Monoid(mappend))
 -- import Text.ParserCombinators.Poly
-import Text.Parse 
+import Text.Parse
 
 import Text.XML.HaXml.Types      (Name,QName(..),Namespace(..),Attribute(..)
                                  ,Content(..),Element(..),info)
@@ -131,7 +131,7 @@ attribute qn (P p) (Elem n as _) = P $ \inp->
                                              ++printableName qn++"=\""
                                              ++show atv++"\": "++msg
                       Success [] v  -> Success [] v
-                      Success xs _  -> Committed $ 
+                      Success xs _  -> Committed $
                                        Failure xs $
                                              "Attribute parsing excess text: "
                                              ++printableName qn++"=\""
@@ -666,12 +666,47 @@ qname q = do a <- word
 name :: TextParser Name
 name = P p
   where
-    p ""       = Failure "" "end of input"
-    p (c:s) | isIdInit c = let (nam,t) = span isIdChar s in Success t (c:nam)
-            | isDigit  c = let (ds,t)  = span isDigit s in Success t (c:ds)
-            | otherwise  = Failure (c:s) ("Bad character: "++show c)
-             where isIdInit c = isAlpha c || c == '_'
-                   isIdChar c = isAlphaNum c || c `elem` "_-.:"
+    p [] = Failure [] "end of input"
+    p (c:s) | isSpace c = p $ dropWhile isSpace s -- Strip leading whitespace.
+            | nameStartCharP c = let deWhited = dropWhileEnd isSpace s
+                                     (nam,t) = span nameCharP deWhited
+                                 in if null t
+                                    then Success t (c:nam)
+                                    else Failure (c:s) ("Bad character: " ++ (head t:[]))
+            | otherwise = Failure (c:s) ("Bad character: " ++ (c:[]))
+
+    nameStartCharP c = isAlpha    c || c `elem` "_:"                       || any (inRangeP c) startUnicodeRanges
+    nameCharP      c = isAlphaNum c || c `elem` "_-.:" || toEnum 0xB7 == c || any (inRangeP c) nameCharUnicodeRanges
+
+    inRangeP :: Char -> (Int,Int) -> Bool
+    inRangeP c (l,u) = (toEnum l <= c) && (toEnum u >= c)
+
+    startUnicodeRanges = [ (,) 0xC0 0xD6
+                         , (,) 0xD8 0xF6
+                         , (,) 0xF8 0x2FF
+                         , (,) 0x370 0x37D
+                         , (,) 0x37F 0x1FFF
+                         , (,) 0x200C 0x200D
+                         , (,) 0x2070 0x218F
+                         , (,) 0x2C00 0x2FEF
+                         , (,) 0x3001 0xD7FF
+                         , (,) 0xF900 0xFDCF
+                         , (,) 0xFDF0 0xFFFD
+                         , (,) 0x10000 0xEFFFF
+                         ]
+
+    nameCharUnicodeRanges = [ (,) 0x300 0x36F
+                            , (,) 0x203F 0x2040
+                            ]
+
 -- Based on xsd:Name
 -- Pattern: [\i-[:]][\c-[:]]*
--- White Space: collapse             -- Must add in future!
+-- White Space: collapse
+
+-- See https://www.w3.org/TR/xml11/#IDAKUDS for a definition
+-- NameStartChar ::= ":" | [A-Z] | "_" | [a-z] | [#xC0-#xD6] | [#xD8-#xF6]
+--                 | [#xF8-#x2FF] | [#x370-#x37D] | [#x37F-#x1FFF] | [#x200C-#x200D]
+--                 | [#x2070-#x218F] | [#x2C00-#x2FEF] | [#x3001-#xD7FF]
+--                 | [#xF900-#xFDCF] | [#xFDF0-#xFFFD] | [#x10000-#xEFFFF]
+-- NameChar      ::= NameStartChar | "-" | "." | [0-9] | #xB7 | [#x0300-#x036F] | [#x203F-#x2040]
+-- Name          ::= NameStartChar (NameChar)*
