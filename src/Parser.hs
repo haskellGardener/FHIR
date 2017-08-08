@@ -667,11 +667,11 @@ name :: TextParser Name
 name = P p
   where
     p [] = Failure [] "end of input"
-    p (c:s) | isSpace c = p $ dropWhile isSpace s -- Strip leading whitespace.
-            | nameStartCharP c = let deWhited = dropWhileEnd isSpace s
+    p (c:s) | isSpace c = p $ dropWhile isSpace s                      -- Strip leading whitespace.
+            | nameStartCharP c = let deWhited = dropWhileEnd isSpace s -- Strip trailing whitespace.
                                      (nam,t) = span nameCharP deWhited
                                  in if null t
-                                    then Success t (c:nam)
+                                    then Success [] (c:nam)
                                     else Failure (c:s) ("Bad character: " ++ (head t:[]))
             | otherwise = Failure (c:s) ("Bad character: " ++ (c:[]))
 
