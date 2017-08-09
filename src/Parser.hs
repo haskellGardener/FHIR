@@ -5,7 +5,7 @@ module Parser
   ) where
 
 import Data.Char (isSpace)
-import Data.List (isPrefixOf, dropWhileEnd)
+import Data.List (isPrefixOf, dropWhileEnd, nub)
 import Data.Monoid (Monoid(mappend))
 -- import Text.ParserCombinators.Poly
 import Text.Parse
@@ -668,7 +668,7 @@ name = P p
   where
     p [] = Failure [] "end of input"
     p (c:s) | isSpace c = p $ dropWhile isSpace s                      -- Strip leading whitespace.
-            | nameStartCharP c = let deWhited = dropWhileEnd isSpace s -- Strip trailing whitespace.
+            | nameStartCharP c = let deWhited = dropWhileEnd isSpace . collapse $ map (\c -> if isSpace c then ' ' else c) s
                                      (nam,t) = span nameCharP deWhited
                                  in if null t
                                     then Success [] (c:nam)
@@ -699,6 +699,13 @@ name = P p
                             , (,) 0x203F 0x2040
                             ]
 
+    collapse :: String -> String
+    collapse s = fst . head . dropWhile (not . null . snd) $ iterate nubit ("", s)
+
+    nubit :: (String, String) -> (String, String)
+    nubit (acc, new@(' ':_)) = (acc ++ (nub . fst $ span isSpace new), snd $ span isSpace new)
+    nubit (acc, new)         = (acc ++ (fst $ break isSpace new), snd $ break isSpace new)
+                               
 -- Based on xsd:Name
 -- Pattern: [\i-[:]][\c-[:]]*
 -- White Space: collapse
