@@ -701,7 +701,7 @@ name = P p
 
     collapse = collapseG isSpace
                      
-    -- collapseWords, collapseG, and collapse are 3 ways to acheive the same thing.
+    -- collapseWords, collapseG, and collapseS are 3 ways to acheive the same thing.
     collapseWords :: String -> String
     collapseWords = unwords . words
 
