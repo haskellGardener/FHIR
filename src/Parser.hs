@@ -701,13 +701,11 @@ name = P p
 
     collapseSimple = unwords . words
     
-    collapse :: String -> String
-    collapse s = fst . head . dropWhile (not . null . snd) $ iterate nubit ("", s)
+    collapse compF s = fst . head . dropWhile (not . null . snd) $ iterate (nubit compF) ("", s)
 
-    nubit :: (String, String) -> (String, String)
-    nubit (acc, new@(c:_)) | isSpace c = (acc ++ (nub . fst $ span  isSpace new), snd $ span  isSpace new)
-                           | otherwise = (acc ++ (      fst $ break isSpace new), snd $ break isSpace new)
-    nubit e@(_, []) = e
+    nubit compF (acc, new@(c:_)) | compF c =   (acc ++ (nub . fst $ span  compF new), snd $ span  compF new)
+                                 | otherwise = (acc ++ (      fst $ break compF new), snd $ break compF new)
+    nubit _ e@(_, []) = e
                                
 -- Based on xsd:Name
 -- Pattern: [\i-[:]][\c-[:]]*
