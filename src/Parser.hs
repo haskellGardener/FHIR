@@ -703,8 +703,8 @@ name = P p
     collapse s = fst . head . dropWhile (not . null . snd) $ iterate nubit ("", s)
 
     nubit :: (String, String) -> (String, String)
-    nubit (acc, new@(' ':_)) = (acc ++ (nub . fst $ span  isSpace new), snd $ span  isSpace new)
-    nubit (acc, new)         = (acc ++ (      fst $ break isSpace new), snd $ break isSpace new)
+    nubit (acc, new@(c:_)) | isSpace c = (acc ++ (nub . fst $ span  isSpace new), snd $ span  isSpace new)
+                           | otherwise = (acc ++ (      fst $ break isSpace new), snd $ break isSpace new)
                                
 -- Based on xsd:Name
 -- Pattern: [\i-[:]][\c-[:]]*
