@@ -5,7 +5,7 @@ module Parser
   ) where
 
 import Data.Char (isSpace)
-import Data.List (isPrefixOf, dropWhileEnd, nub, groupBy)
+import Data.List (isPrefixOf, dropWhileEnd, nubBy, groupBy)
 import Data.Monoid (Monoid(mappend))
 -- import Text.ParserCombinators.Poly
 import Text.Parse
@@ -701,19 +701,19 @@ name = P p
 
     collapse = collapseG isSpace
                      
-    -- collapseWords, collapseG, and collapseS are 3 ways to acheive the same thing.
-    collapseWords :: String -> String
+    -- collapseWords, collapseG are 2 ways to acheive roughly the same thing.
+    collapseWords :: String -> String -- very fast but not generic
     collapseWords = unwords . words
 
-    collapseG :: Eq a => (a -> Bool) -> [a] -> [a]
-    collapseG compF s = concat . map nub $ groupBy (\a b -> compF a && compF b) s
+    collapseG :: (a -> Bool) -> [a] -> [a] -- slow but generic
+    collapseG compF s = concat . map (nubBy (\a _ -> compF a)) $ groupBy (\a b -> compF a && compF b) s -- nub duplicates in set recognized by compF
     
-    collapseS :: Eq a => (a -> Bool) -> [a] -> [a]
-    collapseS compF s = fst . head . dropWhile (not . null . snd) $ iterate (nubit compF) ([], s)
-      where
-        nubit compF (acc, new@(c:_)) | compF c =   (acc ++ (nub . fst $ span  compF new), snd $ span  compF new)
-                                     | otherwise = (acc ++ (      fst $ break compF new), snd $ break compF new)
-        nubit _ e@(_, []) = e
+    -- collapseS :: (a -> Bool) -> [a] -> [a] -- rediculously slow but generic
+    -- collapseS compF s = foldl (++) [] . fst . head . dropWhile (not . null . snd) $ iterate (nubit compF) ([], s) -- nub duplicates in set recognized by compF
+    --   where
+    --     nubit compF (acc, new@(c:_)) | compF c =   ((nubBy (\a _ -> compF a) . fst $ span  compF new) : acc, snd $ span  compF new)
+    --                                  | otherwise = ((                          fst $ break compF new) : acc, snd $ break compF new)
+    --     nubit _ e@(_, []) = e
                                
 -- Based on xsd:Name
 -- Pattern: [\i-[:]][\c-[:]]*
