@@ -679,7 +679,7 @@ name = P p
     nameCharP      c = isAlphaNum c || c `elem` "_-.:" || toEnum 0xB7 == c || any (inRangeP c) nameCharUnicodeRanges
 
     inRangeP :: Char -> (Int,Int) -> Bool
-    inRangeP c (l,u) = (toEnum l <= c) && (toEnum u >= c)
+    inRangeP c (l,u) = toEnum l <= c && toEnum u >= c
 
     startUnicodeRanges = [ (,) 0xC0 0xD6
                          , (,) 0xD8 0xF6
