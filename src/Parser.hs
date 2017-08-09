@@ -668,8 +668,8 @@ name = P p
   where
     p [] = Failure [] "end of input"
     p (c:s) | isSpace c = p $ dropWhile isSpace s                      -- Strip leading whitespace.
-            | nameStartCharP c = let deWhited = dropWhileEnd isSpace . collapse $ map (\cc -> if isSpace cc then ' ' else cc) s
-                                     (nam,t) = span nameCharP deWhited
+            | nameStartCharP c = let wsNormal = dropWhileEnd isSpace . collapse $ map (\cc -> if isSpace cc then ' ' else cc) s
+                                     (nam,t) = span nameCharP wsNormal
                                  in if null t
                                     then Success [] (c:nam)
                                     else Failure (c:s) ("Bad character: " ++ (head t:[]))
