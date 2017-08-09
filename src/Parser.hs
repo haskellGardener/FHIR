@@ -668,7 +668,7 @@ name = P p
   where
     p [] = Failure [] "end of input"
     p (c:s) | isSpace c = p $ dropWhile isSpace s                      -- Strip leading whitespace.
-            | nameStartCharP c = let deWhited = dropWhileEnd isSpace . collapse $ map (\c -> if isSpace c then ' ' else c) s
+            | nameStartCharP c = let deWhited = dropWhileEnd isSpace . collapse $ map (\cc -> if isSpace cc then ' ' else cc) s
                                      (nam,t) = span nameCharP deWhited
                                  in if null t
                                     then Success [] (c:nam)
@@ -705,6 +705,7 @@ name = P p
     nubit :: (String, String) -> (String, String)
     nubit (acc, new@(c:_)) | isSpace c = (acc ++ (nub . fst $ span  isSpace new), snd $ span  isSpace new)
                            | otherwise = (acc ++ (      fst $ break isSpace new), snd $ break isSpace new)
+    nubit e@(_, []) = e
                                
 -- Based on xsd:Name
 -- Pattern: [\i-[:]][\c-[:]]*
