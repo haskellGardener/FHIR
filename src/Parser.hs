@@ -701,7 +701,7 @@ name = P p
 
     collapseSimple = collapse isSpace -- unwords . words
     
-    collapse compF s = fst . head . dropWhile (not . null . snd) $ iterate (nubit compF) (mempty, s)
+    collapse compF s = fst . head . dropWhile (not . null . snd) $ iterate (nubit compF) ([], s)
 
     nubit compF (acc, new@(c:_)) | compF c =   (acc ++ (nub . fst $ span  compF new), snd $ span  compF new)
                                  | otherwise = (acc ++ (      fst $ break compF new), snd $ break compF new)
