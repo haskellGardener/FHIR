@@ -701,19 +701,19 @@ name = P p
 
     collapse = collapseG isSpace
                      
-    -- collapseWords, collapseG are 2 ways to acheive roughly the same thing.
-    collapseWords :: String -> String -- very fast but not generic
-    collapseWords = unwords . words
+    -- collapseW, collapseG, and collapseS are 3 ways to acheive roughly the same thing.
+    collapseW :: String -> String -- very fast but not generic
+    collapseW = unwords . words
 
     collapseG :: (a -> Bool) -> [a] -> [a] -- slow but generic
     collapseG compF s = concat . map (nubBy (\a _ -> compF a)) $ groupBy (\a b -> compF a && compF b) s -- nub duplicates in set recognized by compF
     
-    -- collapseS :: (a -> Bool) -> [a] -> [a] -- rediculously slow but generic
-    -- collapseS compF s = foldl (++) [] . fst . head . dropWhile (not . null . snd) $ iterate (nubit compF) ([], s) -- nub duplicates in set recognized by compF
-    --   where
-    --     nubit compF (acc, new@(c:_)) | compF c =   ((nubBy (\a _ -> compF a) . fst $ span  compF new) : acc, snd $ span  compF new)
-    --                                  | otherwise = ((                          fst $ break compF new) : acc, snd $ break compF new)
-    --     nubit _ e@(_, []) = e
+    collapseS :: (a -> Bool) -> [a] -> [a] -- slower than collapseG but generic, also obfuscation to the max!
+    collapseS compF s = foldr (++) [] . reverse . fst . head . dropWhile (not . null . snd) $ iterate (nubit compF) ([], s)
+      where
+        nubit compF (acc, new@(c:_)) | compF c =   ((nubBy (\a _ -> compF a) . fst $ span  compF new) : acc, snd $ span  compF new)
+                                     | otherwise = ((                          fst $ break compF new) : acc, snd $ break compF new)
+        nubit _ e@(_, []) = e
                                
 -- Based on xsd:Name
 -- Pattern: [\i-[:]][\c-[:]]*
