@@ -5,7 +5,7 @@ module Parser
   ) where
 
 import Data.Char (isSpace)
-import Data.List (isPrefixOf, dropWhileEnd, nub)
+import Data.List (isPrefixOf, dropWhileEnd, nub, groupBy)
 import Data.Monoid (Monoid(mappend))
 -- import Text.ParserCombinators.Poly
 import Text.Parse
@@ -668,7 +668,7 @@ name = P p
   where
     p [] = Failure [] "end of input"
     p (c:s) | isSpace c = p $ dropWhile isSpace s                      -- Strip leading whitespace.
-            | nameStartCharP c = let wsNormal = dropWhileEnd isSpace . collapseSimple $ map (\cc -> if isSpace cc then ' ' else cc) s
+            | nameStartCharP c = let wsNormal = dropWhileEnd isSpace . collapse $ map (\cc -> if isSpace cc then ' ' else cc) s
                                      (nam,t) = span nameCharP wsNormal
                                  in if null t
                                     then Success [] (c:nam)
@@ -699,13 +699,21 @@ name = P p
                             , (,) 0x203F 0x2040
                             ]
 
-    collapseSimple = collapse isSpace -- unwords . words
-    
-    collapse compF s = fst . head . dropWhile (not . null . snd) $ iterate (nubit compF) ([], s)
+    collapse = collapseG isSpace
+                     
+    -- collapseWords, collapseG, and collapse are 3 ways to acheive the same thing.
+    collapseWords :: String -> String
+    collapseWords = unwords . words
 
-    nubit compF (acc, new@(c:_)) | compF c =   (acc ++ (nub . fst $ span  compF new), snd $ span  compF new)
-                                 | otherwise = (acc ++ (      fst $ break compF new), snd $ break compF new)
-    nubit _ e@(_, []) = e
+    collapseG :: Eq a => (a -> Bool) -> [a] -> [a]
+    collapseG compF s = concat . map nub $ groupBy (\a b -> compF a && compF b) s
+    
+    collapseS :: Eq a => (a -> Bool) -> [a] -> [a]
+    collapseS compF s = fst . head . dropWhile (not . null . snd) $ iterate (nubit compF) ([], s)
+      where
+        nubit compF (acc, new@(c:_)) | compF c =   (acc ++ (nub . fst $ span  compF new), snd $ span  compF new)
+                                     | otherwise = (acc ++ (      fst $ break compF new), snd $ break compF new)
+        nubit _ e@(_, []) = e
                                
 -- Based on xsd:Name
 -- Pattern: [\i-[:]][\c-[:]]*
