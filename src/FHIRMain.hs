@@ -84,12 +84,14 @@ import Text.XML.HaXml.Posn       (posInNewCxt)
 import Text.XML.HaXml.ShowXmlLazy
 import Parser
 import Text.XML.HaXml.Schema.Environment
-import Text.XML.HaXml.Schema.NameConversion
+import Text.XML.HaXml.Schema.NameConversion hiding (simpleNameConverter)
 import Text.XML.HaXml.Schema.TypeConversion (convert)
 import Text.XML.HaXml.Schema.PrettyHaskell
 import qualified Text.XML.HaXml.Schema.HaskellTypeModel as Haskell
 import Text.ParserCombinators.Poly
 import Text.PrettyPrint.HughesPJ (render,vcat)
+
+import NameConvert
 
 -- sucked in from Text.XML.HaXml.Wrappers to avoid dependency on T.X.H.Html
 fix2Args :: IO (String,String)
