@@ -84,7 +84,7 @@ import Text.XML.HaXml.Posn       (posInNewCxt)
 import Text.XML.HaXml.ShowXmlLazy
 import Parser
 import Text.XML.HaXml.Schema.Environment
-import Text.XML.HaXml.Schema.NameConversion hiding (simpleNameConverter)
+import Text.XML.HaXml.Schema.NameConversion
 import Text.XML.HaXml.Schema.TypeConversion (convert)
 import Text.XML.HaXml.Schema.PrettyHaskell
 import qualified Text.XML.HaXml.Schema.HaskellTypeModel as Haskell
@@ -133,7 +133,7 @@ fhirMain = do
       logLn "\n-- ---------------\n"
       let decls = convert (mkEnvironment inf tmSchema emptyEnv) tmSchema
           haskl = Haskell.mkModule inf tmSchema decls
-          doc   = ppModule simpleNameConverter haskl
+          doc   = ppModule fhirNameConverter haskl
       hPutStrLn outputHandler $ render doc
     (Right v,_)  -> do logLn "-- Parse incomplete!"
                        logLn "\n-- ---------------\n"
@@ -143,6 +143,21 @@ fhirMain = do
   hClose outputHandler
   exitWith ExitSuccess
 
+
+
+
+-- UNION TYPES NOT PROCESS CORRECTLY <xs:union memberTypes="xs:gYear xs:gYearMonth xs:date"/>
+
+
+
+
+
+
+
+
+
+
+  
 
 --do hPutStrLn o $ "Document contains XSD for target namespace "++
 --                 targetNamespace e
