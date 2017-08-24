@@ -91,6 +91,8 @@ import qualified Text.XML.HaXml.Schema.HaskellTypeModel as Haskell
 import Text.ParserCombinators.Poly
 import Text.PrettyPrint.HughesPJ (render,vcat)
 
+import NameConvert
+
 -- sucked in from Text.XML.HaXml.Wrappers to avoid dependency on T.X.H.Html
 fix2Args :: IO (String,String)
 fix2Args = do
@@ -131,7 +133,7 @@ fhirMain = do
       logLn "\n-- ---------------\n"
       let decls = convert (mkEnvironment inf tmSchema emptyEnv) tmSchema
           haskl = Haskell.mkModule inf tmSchema decls
-          doc   = ppModule simpleNameConverter haskl
+          doc   = ppModule fhirNameConverter haskl
       hPutStrLn outputHandler $ render doc
     (Right v,_)  -> do logLn "-- Parse incomplete!"
                        logLn "\n-- ---------------\n"
@@ -141,6 +143,21 @@ fhirMain = do
   hClose outputHandler
   exitWith ExitSuccess
 
+
+
+
+-- UNION TYPES NOT PROCESS CORRECTLY <xs:union memberTypes="xs:gYear xs:gYearMonth xs:date"/>
+
+
+
+
+
+
+
+
+
+
+  
 
 --do hPutStrLn o $ "Document contains XSD for target namespace "++
 --                 targetNamespace e

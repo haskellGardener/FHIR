@@ -30,6 +30,7 @@ library
   hs-source-dirs:    src
   exposed-modules:   FHIRMain
                    , Parser
+                   , NameConvert
   build-depends:     base >= 4.8 && < 5
                    , HaXml
                    , containers
