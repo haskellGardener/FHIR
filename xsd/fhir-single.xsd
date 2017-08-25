@@ -52,7 +52,11 @@
   </xs:simpleType>
   <xs:complexType name="date">
     <xs:annotation>
-      <xs:documentation xml:lang="en">A date or partial date (e.g. just year or year + month). There is no time zone. The format is a union of the schema types gYear, gYearMonth and date.  Dates SHALL be valid dates.</xs:documentation>
+      <xs:documentation xml:lang="en">
+        A date or partial date (e.g. just year or year + month). There is no
+        time zone. The format is a union of the schema types gYear, gYearMonth
+        and date.  Dates SHALL be valid dates.
+      </xs:documentation>
       <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -71,7 +75,14 @@
   </xs:simpleType>
   <xs:complexType name="dateTime">
     <xs:annotation>
-      <xs:documentation xml:lang="en">A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.</xs:documentation>
+      <xs:documentation xml:lang="en">
+        A date, date-time or partial date (e.g. just year or year +
+        month).  If hours and minutes are specified, a time zone SHALL be
+        populated. The format is a union of the schema types gYear,
+        gYearMonth, date and dateTime. Seconds must be provided due to schema
+        type constraints but may be zero-filled and may be ignored.  Dates
+        SHALL be valid dates.
+      </xs:documentation>
       <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -88,8 +99,14 @@
   </xs:simpleType>
   <xs:complexType name="code">
     <xs:annotation>
-      <xs:documentation xml:lang="en">A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents</xs:documentation>
-      <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id referenced from the Narrative, or extensions</xs:documentation>
+      <xs:documentation xml:lang="en">
+        A string which has at least one character and no leading or trailing
+        whitespace and where there is no whitespace other than single spaces
+        in the contents
+      </xs:documentation>
+      <xs:documentation xml:lang="en">
+        If the element is present, it must have either a @value, an @id referenced from the Narrative, or extensions
+      </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="Element">
@@ -141,7 +158,10 @@
     <xs:annotation>
       <xs:documentation xml:lang="en">An OID represented as a URI</xs:documentation>
       <xs:documentation xml:lang="en">RFC 3001. See also ISO/IEC 8824:1990 €</xs:documentation>
-      <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id referenced from the Narrative, or extensions</xs:documentation>
+      <xs:documentation xml:lang="en">
+        If the element is present, it must have either a @value, an @id
+        referenced from the Narrative, or extensions
+      </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="Element">
@@ -174,7 +194,10 @@
     <xs:annotation>
       <xs:documentation xml:lang="en">A UUID, represented as a URI</xs:documentation>
       <xs:documentation xml:lang="en">See The Open Group, CDE 1.1 Remote Procedure Call specification, Appendix A.</xs:documentation>
-      <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id referenced from the Narrative, or extensions</xs:documentation>
+      <xs:documentation xml:lang="en">
+        If the element is present, it must have either a @value, an @id
+        referenced from the Narrative, or extensions
+      </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="Element">
@@ -188,7 +211,11 @@
   <xs:complexType name="instant">
     <xs:annotation>
       <xs:documentation xml:lang="en">An instant in time - known at least to the second</xs:documentation>
-      <xs:documentation xml:lang="en">Note: This is intended for precisely observed times, typically system logs etc., and not human-reported times - for them, see date and dateTime below. Time zone is always required</xs:documentation>
+      <xs:documentation xml:lang="en">
+        Note: This is intended for precisely observed times, typically system
+        logs etc., and not human-reported times - for them, see date and
+        dateTime below. Time zone is always required
+      </xs:documentation>
       <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -234,7 +261,10 @@
   <xs:complexType name="unsignedInt">
     <xs:annotation>
       <xs:documentation xml:lang="en">An integer with a value that is not negative (e.g. &gt;= 0)</xs:documentation>
-      <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id referenced from the Narrative, or extensions</xs:documentation>
+      <xs:documentation xml:lang="en">
+        If the element is present, it must have either a @value, an @id
+        referenced from the Narrative, or extensions
+      </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="Element">
@@ -284,9 +314,17 @@
   </xs:simpleType>
   <xs:complexType name="id">
     <xs:annotation>
-      <xs:documentation xml:lang="en">Any combination of letters, numerals, &quot;-&quot; and &quot;.&quot;, with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.</xs:documentation>
+      <xs:documentation xml:lang="en">
+        Any combination of letters, numerals, &quot;-&quot; and &quot;.&quot;,
+        with a length limit of 64 characters.  (This might be an integer, an
+        unprefixed OID, UUID or any other identifier pattern that meets these
+        constraints.)  Ids are case-insensitive.
+      </xs:documentation>
       <xs:documentation xml:lang="en">RFC 4122</xs:documentation>
-      <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id referenced from the Narrative, or extensions</xs:documentation>
+      <xs:documentation xml:lang="en">
+        If the element is present, it must have either a @value, an @id
+        referenced from the Narrative, or extensions
+      </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="Element">
@@ -302,7 +340,10 @@
   <xs:complexType name="positiveInt">
     <xs:annotation>
       <xs:documentation xml:lang="en">An integer with a value that is positive (e.g. &gt;0)</xs:documentation>
-      <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id referenced from the Narrative, or extensions</xs:documentation>
+      <xs:documentation xml:lang="en">
+        If the element is present, it must have either a @value, an @id
+        referenced from the Narrative, or extensions
+      </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="Element">
@@ -318,7 +359,11 @@
   <xs:complexType name="decimal">
     <xs:annotation>
       <xs:documentation xml:lang="en">A rational number with implicit precision</xs:documentation>
-      <xs:documentation xml:lang="en">Do not use a IEEE type floating point type, instead use something that works like a true decimal, with inbuilt precision (e.g. Java BigInteger)</xs:documentation>
+      <xs:documentation xml:lang="en">
+        Do not use a IEEE type floating point type, instead use something that
+        works like a true decimal, with inbuilt precision (e.g. Java
+        BigInteger)
+      </xs:documentation>
       <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -452,14 +497,21 @@
   <xs:complexType name="Extension">
     <xs:annotation>
       <xs:documentation xml:lang="en">Optional Extension Element - found in all resources.</xs:documentation>
-      <xs:documentation xml:lang="en">If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions</xs:documentation>
+      <xs:documentation xml:lang="en">
+        If the element is present, it must have a value for at least one of
+        the defined elements, an @id referenced from the Narrative, or
+        extensions
+      </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="Element">
         <xs:sequence>
         <xs:choice minOccurs="0" maxOccurs="1">
            <xs:annotation>
-             <xs:documentation xml:lang="en">Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).</xs:documentation>
+             <xs:documentation xml:lang="en">
+               Value of extension - may be a resource or one of a constrained set of
+               the data types (see Extensibility in the spec for list).
+             </xs:documentation>
            </xs:annotation>
            <xs:element name="valueBase64Binary" type="base64Binary"/>
            <xs:element name="valueBoolean" type="boolean"/>
@@ -1098,7 +1150,11 @@
   <xs:complexType name="Distance">
     <xs:annotation>
       <xs:documentation xml:lang="en">A length - a value with a unit that is a physical distance.</xs:documentation>
-      <xs:documentation xml:lang="en">If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions</xs:documentation>
+      <xs:documentation xml:lang="en">
+        If the element is present, it must have a value for at least
+        one of the defined elements, an @id referenced from the Narrative, or
+        extensions
+      </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="Quantity">
@@ -1110,7 +1166,11 @@
   <xs:complexType name="Age">
     <xs:annotation>
       <xs:documentation xml:lang="en">A duration of time during which an organism (or a process) has existed.</xs:documentation>
-      <xs:documentation xml:lang="en">If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions</xs:documentation>
+      <xs:documentation xml:lang="en">
+        If the element is present, it must have a value for at least
+        one of the defined elements, an @id referenced from the Narrative, or
+        extensions
+      </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="Quantity">
@@ -1121,8 +1181,15 @@
   </xs:complexType>
   <xs:complexType name="CodeableConcept">
     <xs:annotation>
-      <xs:documentation xml:lang="en">A concept that may be defined by a formal reference to a terminology or ontology or may be provided by text.</xs:documentation>
-      <xs:documentation xml:lang="en">If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions</xs:documentation>
+      <xs:documentation xml:lang="en">
+        A concept that may be defined by a formal reference to a
+        terminology or ontology or may be provided by text.
+      </xs:documentation>
+      <xs:documentation xml:lang="en">
+        If the element is present, it must have a value for at least
+        one of the defined elements, an @id referenced from the Narrative, or
+        extensions
+      </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="Element">
@@ -1134,7 +1201,11 @@
           </xs:element>
           <xs:element name="text" type="string" minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                A human language representation of the concept as
+                seen/selected/uttered by the user who entered the data and/or which
+                represents the intended meaning of the user.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -1143,15 +1214,27 @@
   </xs:complexType>
   <xs:complexType name="Meta">
     <xs:annotation>
-      <xs:documentation xml:lang="en">The metadata about a resource. This is content in the resource that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource.</xs:documentation>
-      <xs:documentation xml:lang="en">If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions</xs:documentation>
+      <xs:documentation xml:lang="en">
+        The metadata about a resource. This is content in the resource
+        that is maintained by the infrastructure. Changes to the content may
+        not always be associated with version changes to the resource.
+      </xs:documentation>
+      <xs:documentation xml:lang="en">
+        If the element is present, it must have a value for at least
+        one of the defined elements, an @id referenced from the Narrative, or
+        extensions
+      </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="Element">
         <xs:sequence>
           <xs:element name="versionId" type="id" minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The version specific identifier, as it appears in the version portion of the URL. This values changes when the resource is created, updated, or deleted.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                The version specific identifier, as it appears in the
+                version portion of the URL. This values changes when the resource is
+                created, updated, or deleted.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="lastUpdated" type="instant" minOccurs="0" maxOccurs="1">
@@ -1161,17 +1244,30 @@
           </xs:element>
           <xs:element name="profile" type="uri" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A list of profiles (references to [[[StructureDefinition]]] resources) that this resource claims to conform to. The URL is a reference to [[[StructureDefinition.url]]].</xs:documentation>
+              <xs:documentation xml:lang="en">
+                A list of profiles (references to
+                [[[StructureDefinition]]] resources) that this resource claims to
+                conform to. The URL is a reference to [[[StructureDefinition.url]]].
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="security" type="Coding" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Security labels applied to this resource. These tags connect specific resources to the overall security policy and infrastructure.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                Security labels applied to this resource. These tags
+                connect specific resources to the overall security policy and
+                infrastructure.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="tag" type="Coding" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Tags applied to this resource. Tags are intended to be used to identify and relate resources to process and workflow, and applications are not required to consider the tags when interpreting the meaning of a resource.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                Tags applied to this resource. Tags are intended to be
+                used to identify and relate resources to process and workflow, and
+                applications are not required to consider the tags when interpreting
+                the meaning of a resource.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -1180,8 +1276,18 @@
   </xs:complexType>
   <xs:complexType name="Address">
     <xs:annotation>
-      <xs:documentation xml:lang="en">An address expressed using postal conventions (as opposed to GPS or other location definition formats).  This data type may be used to convey addresses for use in delivering mail as well as for visiting locations which might not be valid for mail delivery.  There are a variety of postal address formats defined around the world.</xs:documentation>
-      <xs:documentation xml:lang="en">If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions</xs:documentation>
+      <xs:documentation xml:lang="en">
+        An address expressed using postal conventions (as opposed to
+        GPS or other location definition formats).  This data type may be used
+        to convey addresses for use in delivering mail as well as for visiting
+        locations which might not be valid for mail delivery.  There are a
+        variety of postal address formats defined around the world.
+      </xs:documentation>
+      <xs:documentation xml:lang="en">
+        If the element is present, it must have a value for at least
+        one of the defined elements, an @id referenced from the Narrative, or
+        extensions
+      </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="Element">
@@ -1193,7 +1299,11 @@
           </xs:element>
           <xs:element name="type" type="AddressType" minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Distinguishes between physical addresses (those you can visit) and mailing addresses (e.g. PO Boxes and care-of addresses). Most addresses are both.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                Distinguishes between physical addresses (those you
+                can visit) and mailing addresses (e.g. PO Boxes and care-of
+                addresses). Most addresses are both.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="text" type="string" minOccurs="0" maxOccurs="1">
@@ -1203,12 +1313,19 @@
           </xs:element>
           <xs:element name="line" type="string" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">This component contains the house number, apartment number, street name, street direction,  P.O. Box number, delivery hints, and similar address information.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                This component contains the house number, apartment
+                number, street name, street direction, P.O. Box number, delivery
+                hints, and similar address information.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="city" type="string" minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The name of the city, town, village or other community or delivery center.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                The name of the city, town, village or other community
+                or delivery center.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="district" type="string" minOccurs="0" maxOccurs="1">
@@ -1218,7 +1335,11 @@
           </xs:element>
           <xs:element name="state" type="string" minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Sub-unit of a country with limited sovereignty in a federally organized country. A code may be used if codes are in common use (i.e. US 2 letter state codes).</xs:documentation>
+              <xs:documentation xml:lang="en">
+                Sub-unit of a country with limited sovereignty in a
+                federally organized country. A code may be used if codes are in common
+                use (i.e. US 2 letter state codes).
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="postalCode" type="string" minOccurs="0" maxOccurs="1">
@@ -1308,7 +1429,11 @@
   <xs:complexType name="TriggerDefinition">
     <xs:annotation>
       <xs:documentation xml:lang="en">A description of a triggering event.</xs:documentation>
-      <xs:documentation xml:lang="en">If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions</xs:documentation>
+      <xs:documentation xml:lang="en">
+        If the element is present, it must have a value for at least
+        one of the defined elements, an @id referenced from the Narrative, or
+        extensions
+      </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="Element">
@@ -1393,8 +1518,15 @@
   </xs:complexType>
   <xs:complexType name="Contributor">
     <xs:annotation>
-      <xs:documentation xml:lang="en">A contributor to the content of a knowledge asset, including authors, editors, reviewers, and endorsers.</xs:documentation>
-      <xs:documentation xml:lang="en">If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions</xs:documentation>
+      <xs:documentation xml:lang="en">
+        A contributor to the content of a knowledge asset, including
+        authors, editors, reviewers, and endorsers.
+      </xs:documentation>
+      <xs:documentation xml:lang="en">
+        If the element is present, it must have a value for at least
+        one of the defined elements, an @id referenced from the Narrative, or
+        extensions
+      </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="Element">
@@ -1455,35 +1587,65 @@
   </xs:complexType>
   <xs:complexType name="DataRequirement">
     <xs:annotation>
-      <xs:documentation xml:lang="en">Describes a required data item for evaluation in terms of the type of data, and optional code or date-based filters of the data.</xs:documentation>
-      <xs:documentation xml:lang="en">If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions</xs:documentation>
+      <xs:documentation xml:lang="en">
+        Describes a required data item for evaluation in terms of the
+        type of data, and optional code or date-based filters of the data.
+      </xs:documentation>
+      <xs:documentation xml:lang="en">
+        If the element is present, it must have a value for at least
+        one of the defined elements, an @id referenced from the Narrative, or
+        extensions
+      </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="Element">
         <xs:sequence>
           <xs:element name="type" type="code" minOccurs="1" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The type of the required data, specified as the type name of a resource. For profiles, this value is set to the type of the base resource of the profile.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                The type of the required data, specified as the type
+                name of a resource. For profiles, this value is set to the type of the
+                base resource of the profile.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="profile" type="uri" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The profile of the required data, specified as the uri of the profile definition.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                The profile of the required data, specified as the uri
+                of the profile definition.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="mustSupport" type="string" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Indicates that specific elements of the type are referenced by the knowledge module and must be supported by the consumer in order to obtain an effective evaluation. This does not mean that a value is required for this element, only that the consuming system must understand the element and be able to provide values for it if they are available. Note that the value for this element can be a path to allow references to nested elements. In that case, all the elements along the path must be supported.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                Indicates that specific elements of the type are
+                referenced by the knowledge module and must be supported by the
+                consumer in order to obtain an effective evaluation. This does not
+                mean that a value is required for this element, only that the
+                consuming system must understand the element and be able to provide
+                values for it if they are available. Note that the value for this
+                element can be a path to allow references to nested elements. In that
+                case, all the elements along the path must be supported.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="codeFilter" type="DataRequirement.CodeFilter" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Code filters specify additional constraints on the data, specifying the value set of interest for a particular element of the data.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                Code filters specify additional constraints on the
+                data, specifying the value set of interest for a particular element of
+                the data.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="dateFilter" type="DataRequirement.DateFilter" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Date filters specify additional constraints on the data in terms of the applicable date range for specific elements.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                Date filters specify additional constraints on the
+                data in terms of the applicable date range for specific elements.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -1492,37 +1654,75 @@
   </xs:complexType>
   <xs:complexType name="DataRequirement.CodeFilter">
     <xs:annotation>
-      <xs:documentation xml:lang="en">Describes a required data item for evaluation in terms of the type of data, and optional code or date-based filters of the data.</xs:documentation>
-      <xs:documentation xml:lang="en">If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions</xs:documentation>
+      <xs:documentation xml:lang="en">
+        Describes a required data item for evaluation in terms of the
+        type of data, and optional code or date-based filters of the data.
+      </xs:documentation>
+      <xs:documentation xml:lang="en">
+        If the element is present, it must have a value for at least
+        one of the defined elements, an @id referenced from the Narrative, or
+        extensions
+      </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="Element">
         <xs:sequence>
           <xs:element name="path" type="string" minOccurs="1" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The code-valued attribute of the filter. The specified path must be resolvable from the type of the required data. The path is allowed to contain qualifiers (.) to traverse sub-elements, as well as indexers ([x]) to traverse multiple-cardinality sub-elements. Note that the index must be an integer constant. The path must resolve to an element of type code, Coding, or CodeableConcept.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                The code-valued attribute of the filter. The specified
+                path must be resolvable from the type of the required data. The path
+                is allowed to contain qualifiers (.) to traverse sub-elements, as well
+                as indexers ([x]) to traverse multiple-cardinality sub-elements. Note
+                that the index must be an integer constant. The path must resolve to
+                an element of type code, Coding, or CodeableConcept.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:choice minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The valueset for the code filter. The valueSet and value elements are exclusive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                The valueset for the code filter. The valueSet and
+                value elements are exclusive. If valueSet is specified, the filter
+                will return only those data items for which the value of the
+                code-valued element specified in the path is a member of the specified
+                valueset.
+              </xs:documentation>
             </xs:annotation>
            <xs:element name="valueSetString" type="string"  maxOccurs="1"/>
            <xs:element name="valueSetReference" type="Reference"  maxOccurs="1"/>
           </xs:choice>
           <xs:element name="valueCode" type="code" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The codes for the code filter. Only one of valueSet, valueCode, valueCoding, or valueCodeableConcept may be specified. If values are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified codes.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                The codes for the code filter. Only one of valueSet,
+                valueCode, valueCoding, or valueCodeableConcept may be specified. If
+                values are given, the filter will return only those data items for
+                which the code-valued attribute specified by the path has a value that
+                is one of the specified codes.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="valueCoding" type="Coding" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The Codings for the code filter. Only one of valueSet, valueCode, valueConding, or valueCodeableConcept may be specified. If values are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified Codings.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                The Codings for the code filter. Only one of valueSet,
+                valueCode, valueConding, or valueCodeableConcept may be specified. If
+                values are given, the filter will return only those data items for
+                which the code-valued attribute specified by the path has a value that
+                is one of the specified Codings.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="valueCodeableConcept" type="CodeableConcept" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The CodeableConcepts for the code filter. Only one of valueSet, valueCode, valueConding, or valueCodeableConcept may be specified. If values are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified CodeableConcepts.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                The CodeableConcepts for the code filter. Only one of
+                valueSet, valueCode, valueConding, or valueCodeableConcept may be
+                specified. If values are given, the filter will return only those data
+                items for which the code-valued attribute specified by the path has a
+                value that is one of the specified CodeableConcepts.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -1531,20 +1731,42 @@
   </xs:complexType>
   <xs:complexType name="DataRequirement.DateFilter">
     <xs:annotation>
-      <xs:documentation xml:lang="en">Describes a required data item for evaluation in terms of the type of data, and optional code or date-based filters of the data.</xs:documentation>
-      <xs:documentation xml:lang="en">If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions</xs:documentation>
+      <xs:documentation xml:lang="en">
+        Describes a required data item for evaluation in terms of the
+        type of data, and optional code or date-based filters of the data.
+      </xs:documentation>
+      <xs:documentation xml:lang="en">
+        If the element is present, it must have a value for at least
+        one of the defined elements, an @id referenced from the Narrative, or
+        extensions
+      </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="Element">
         <xs:sequence>
           <xs:element name="path" type="string" minOccurs="1" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The date-valued attribute of the filter. The specified path must be resolvable from the type of the required data. The path is allowed to contain qualifiers (.) to traverse sub-elements, as well as indexers ([x]) to traverse multiple-cardinality sub-elements. Note that the index must be an integer constant. The path must resolve to an element of type dateTime, Period, Schedule, or Timing.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                The date-valued attribute of the filter. The specified
+                path must be resolvable from the type of the required data. The path
+                is allowed to contain qualifiers (.) to traverse sub-elements, as well
+                as indexers ([x]) to traverse multiple-cardinality sub-elements. Note
+                that the index must be an integer constant. The path must resolve to
+                an element of type dateTime, Period, Schedule, or Timing.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:choice minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The value of the filter. If period is specified, the filter will return only those data items that fall within the bounds determined by the Period, inclusive of the period boundaries. If dateTime is specified, the filter will return only those data items that are equal to the specified dateTime. If a Duration is specified, the filter will return only those data items that fall within Duration from now.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                The value of the filter. If period is specified, the
+                filter will return only those data items that fall within the bounds
+                determined by the Period, inclusive of the period boundaries. If
+                dateTime is specified, the filter will return only those data items
+                that are equal to the specified dateTime. If a Duration is specified,
+                the filter will return only those data items that fall within Duration
+                from now.
+              </xs:documentation>
             </xs:annotation>
            <xs:element name="valueDateTime" type="dateTime"  maxOccurs="1"/>
            <xs:element name="valuePeriod" type="Period"  maxOccurs="1"/>
@@ -1557,14 +1779,21 @@
   <xs:complexType name="Dosage">
     <xs:annotation>
       <xs:documentation xml:lang="en">Indicates how the medication is/was taken or should be taken by the patient.</xs:documentation>
-      <xs:documentation xml:lang="en">If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions</xs:documentation>
+      <xs:documentation xml:lang="en">
+        If the element is present, it must have a value for at least
+        one of the defined elements, an @id referenced from the Narrative, or
+        extensions
+      </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="Element">
         <xs:sequence>
           <xs:element name="sequence" type="integer" minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Indicates the order in which the dosage instructions should be applied or interpreted.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                Indicates the order in which the dosage instructions
+                should be applied or interpreted.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="text" type="string" minOccurs="0" maxOccurs="1">
@@ -1589,7 +1818,12 @@
           </xs:element>
           <xs:choice minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).</xs:documentation>
+              <xs:documentation xml:lang="en">
+                Indicates whether the Medication is only taken when
+                needed within a specific dosing schedule (Boolean option), or it
+                indicates the precondition for taking the Medication
+                (CodeableConcept).
+              </xs:documentation>
             </xs:annotation>
            <xs:element name="asNeededBoolean" type="boolean"  maxOccurs="1"/>
            <xs:element name="asNeededCodeableConcept" type="CodeableConcept"  maxOccurs="1"/>
@@ -1646,7 +1880,11 @@
   <xs:complexType name="RelatedArtifact">
     <xs:annotation>
       <xs:documentation xml:lang="en">Related artifacts such as additional documentation, justification, or bibliographic references.</xs:documentation>
-      <xs:documentation xml:lang="en">If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions</xs:documentation>
+      <xs:documentation xml:lang="en">
+        If the element is present, it must have a value for at least
+        one of the defined elements, an @id referenced from the Narrative, or
+        extensions
+      </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="Element">
@@ -1658,12 +1896,18 @@
           </xs:element>
           <xs:element name="display" type="string" minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A brief description of the document or knowledge resource being referenced, suitable for display to a consumer.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                A brief description of the document or knowledge
+                resource being referenced, suitable for display to a consumer.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="citation" type="string" minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A bibliographic citation for the related artifact. This text SHOULD be formatted according to an accepted citation format.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                A bibliographic citation for the related artifact. This text SHOULD be
+                formatted according to an accepted citation format.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="url" type="uri" minOccurs="0" maxOccurs="1">
@@ -1673,7 +1917,10 @@
           </xs:element>
           <xs:element name="document" type="Attachment" minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The document being referenced, represented as an attachment. This is exclusive with the resource element.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                The document being referenced, represented as an attachment. This is
+                exclusive with the resource element.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="resource" type="Reference" minOccurs="0" maxOccurs="1">
@@ -1743,7 +1990,11 @@
   <xs:complexType name="ContactDetail">
     <xs:annotation>
       <xs:documentation xml:lang="en">Specifies contact information for a person or organization.</xs:documentation>
-      <xs:documentation xml:lang="en">If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions</xs:documentation>
+      <xs:documentation xml:lang="en">
+        If the element is present, it must have a value for at least one of
+        the defined elements, an @id referenced from the Narrative, or
+        extensions
+      </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="Element">
@@ -1765,7 +2016,11 @@
   <xs:complexType name="HumanName">
     <xs:annotation>
       <xs:documentation xml:lang="en">A human's name with the ability to identify parts and usage.</xs:documentation>
-      <xs:documentation xml:lang="en">If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions</xs:documentation>
+      <xs:documentation xml:lang="en">
+        If the element is present, it must have a value for at least one of
+        the defined elements, an @id referenced from the Narrative, or
+        extensions
+      </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="Element">
@@ -1782,7 +2037,11 @@
           </xs:element>
           <xs:element name="family" type="string" minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The part of a name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                The part of a name that links to the genealogy. In some cultures
+                (e.g. Eritrea) the family name of a son is the first name of his
+                father.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="given" type="string" minOccurs="0" maxOccurs="unbounded">
@@ -1792,12 +2051,20 @@
           </xs:element>
           <xs:element name="prefix" type="string" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the start of the name.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                Part of the name that is acquired as a title due to academic, legal,
+                employment or nobility status, etc. and that appears at the start of
+                the name.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="suffix" type="string" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the end of the name.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                Part of the name that is acquired as a title due to academic, legal,
+                employment or nobility status, etc. and that appears at the end of the
+                name.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="period" type="Period" minOccurs="0" maxOccurs="1">
@@ -1857,24 +2124,37 @@
        <xs:extension base="Element">
          <xs:attribute name="value" type="NameUse-list" use="optional"/>
        </xs:extension>
-     </xs:complexContent>
+    </xs:complexContent>
   </xs:complexType>
   <xs:complexType name="ContactPoint">
     <xs:annotation>
-      <xs:documentation xml:lang="en">Details for all kinds of technology mediated contact points for a person or organization, including telephone, email, etc.</xs:documentation>
-      <xs:documentation xml:lang="en">If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions</xs:documentation>
+      <xs:documentation xml:lang="en">
+        Details for all kinds of technology mediated contact points for a
+        person or organization, including telephone, email, etc.
+      </xs:documentation>
+      <xs:documentation xml:lang="en">
+        If the element is present, it must have a value for at least one of
+        the defined elements, an @id referenced from the Narrative, or
+        extensions
+      </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="Element">
         <xs:sequence>
           <xs:element name="system" type="ContactPointSystem" minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Telecommunications form for contact point - what communications system is required to make use of the contact.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                Telecommunications form for contact point - what communications system
+                is required to make use of the contact.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="value" type="string" minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The actual contact point details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).</xs:documentation>
+              <xs:documentation xml:lang="en">
+                The actual contact point details, in a form that is meaningful to the
+                designated communication system (i.e. phone number or email address).
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="use" type="ContactPointUse" minOccurs="0" maxOccurs="1">
@@ -1884,7 +2164,11 @@
           </xs:element>
           <xs:element name="rank" type="positiveInt" minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Specifies a preferred order in which to use a set of contacts. Contacts are ranked with lower values coming before higher values.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                Specifies a preferred order in which to use a set of
+                contacts. Contacts are ranked with lower values coming before higher
+                values.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="period" type="Period" minOccurs="0" maxOccurs="1">
@@ -1988,8 +2272,18 @@
   </xs:complexType>
   <xs:complexType name="UsageContext">
     <xs:annotation>
-      <xs:documentation xml:lang="en">Specifies clinical/business/etc metadata that can be used to retrieve, index and/or categorize an artifact. This metadata can either be specific to the applicable population (e.g., age category, DRG) or the specific context of care (e.g., venue, care setting, provider of care).</xs:documentation>
-      <xs:documentation xml:lang="en">If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions</xs:documentation>
+      <xs:documentation xml:lang="en">
+        Specifies clinical/business/etc metadata that can be used to retrieve,
+        index and/or categorize an artifact. This metadata can either be
+        specific to the applicable population (e.g., age category, DRG) or the
+        specific context of care (e.g., venue, care setting, provider of
+        care).
+      </xs:documentation>
+      <xs:documentation xml:lang="en">
+        If the element is present, it must have a value for at least one of
+        the defined elements, an @id referenced from the Narrative, or
+        extensions
+      </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="Element">
@@ -2001,9 +2295,12 @@
           </xs:element>
           <xs:choice minOccurs="1" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A value that defines the context specified in this context of use. The interpretation of the value is defined by the code.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                A value that defines the context specified in this context of use. The
+                interpretation of the value is defined by the code.
+              </xs:documentation>
             </xs:annotation>
-           <xs:element name="valueCodeableConcept" type="CodeableConcept"  maxOccurs="1"/>
+            <xs:element name="valueCodeableConcept" type="CodeableConcept"  maxOccurs="1"/>
            <xs:element name="valueQuantity" type="Quantity"  maxOccurs="1"/>
            <xs:element name="valueRange" type="Range"  maxOccurs="1"/>
           </xs:choice>
@@ -2013,8 +2310,19 @@
   </xs:complexType>
   <xs:complexType name="Timing">
     <xs:annotation>
-      <xs:documentation xml:lang="en">Specifies an event that may occur multiple times. Timing schedules are used to record when things are planned, expected or requested to occur. The most common usage is in dosage instructions for medications. They are also used when planning care of various kinds, and may be used for reporting the schedule to which past regular activities were carried out.</xs:documentation>
-      <xs:documentation xml:lang="en">If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions</xs:documentation>
+      <xs:documentation xml:lang="en">
+        Specifies an event that may occur multiple times. Timing schedules are
+        used to record when things are planned, expected or requested to
+        occur. The most common usage is in dosage instructions for
+        medications. They are also used when planning care of various kinds,
+        and may be used for reporting the schedule to which past regular
+        activities were carried out.
+      </xs:documentation>
+      <xs:documentation xml:lang="en">
+        If the element is present, it must have a value for at least one of
+        the defined elements, an @id referenced from the Narrative, or
+        extensions
+      </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="Element">
@@ -2031,7 +2339,15 @@
           </xs:element>
           <xs:element name="code" type="CodeableConcept" minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A code for the timing schedule. Some codes such as BID are ubiquitous, but many institutions define their own additional codes. If a code is provided, the code is understood to be a complete statement of whatever is specified in the structured timing data, and either the code or the data may be used to interpret the Timing, with the exception that .repeat.bounds still applies over the code (and is not contained in the code).</xs:documentation>
+              <xs:documentation xml:lang="en">
+                A code for the timing schedule. Some codes such as BID are ubiquitous,
+                but many institutions define their own additional codes. If a code is
+                provided, the code is understood to be a complete statement of
+                whatever is specified in the structured timing data, and either the
+                code or the data may be used to interpret the Timing, with the
+                exception that .repeat.bounds still applies over the code (and is not
+                contained in the code).
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -2040,17 +2356,32 @@
   </xs:complexType>
   <xs:complexType name="Timing.Repeat">
     <xs:annotation>
-      <xs:documentation xml:lang="en">Specifies an event that may occur multiple times. Timing schedules are used to record when things are planned, expected or requested to occur. The most common usage is in dosage instructions for medications. They are also used when planning care of various kinds, and may be used for reporting the schedule to which past regular activities were carried out.</xs:documentation>
-      <xs:documentation xml:lang="en">If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions</xs:documentation>
+      <xs:documentation xml:lang="en">
+        Specifies an event that may occur multiple times. Timing schedules are
+        used to record when things are planned, expected or requested to
+        occur. The most common usage is in dosage instructions for
+        medications. They are also used when planning care of various kinds,
+        and may be used for reporting the schedule to which past regular
+        activities were carried out.
+      </xs:documentation>
+      <xs:documentation xml:lang="en">
+        If the element is present, it must have a value for at least one of
+        the defined elements, an @id referenced from the Narrative, or
+        extensions
+      </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="Element">
         <xs:sequence>
           <xs:choice minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Either a duration for the length of the timing schedule, a range of possible length, or outer bounds for start and/or end limits of the timing schedule.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                Either a duration for the length of the timing schedule, a range of
+                possible length, or outer bounds for start and/or end limits of the
+                timing schedule.
+              </xs:documentation>
             </xs:annotation>
-           <xs:element name="boundsDuration" type="Duration"  maxOccurs="1"/>
+            <xs:element name="boundsDuration" type="Duration"  maxOccurs="1"/>
            <xs:element name="boundsRange" type="Range"  maxOccurs="1"/>
            <xs:element name="boundsPeriod" type="Period"  maxOccurs="1"/>
           </xs:choice>
@@ -2081,22 +2412,37 @@
           </xs:element>
           <xs:element name="frequency" type="integer" minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The number of times to repeat the action within the specified period / period range (i.e. both period and periodMax provided).</xs:documentation>
+              <xs:documentation xml:lang="en">
+                The number of times to repeat the action within the specified period /
+                period range (i.e. both period and periodMax provided).
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="frequencyMax" type="integer" minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">If present, indicates that the frequency is a range - so to repeat between [frequency] and [frequencyMax] times within the period or period range.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                If present, indicates that the frequency is a range - so to repeat
+                between [frequency] and [frequencyMax] times within the period or
+                period range.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="period" type="decimal" minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Indicates the duration of time over which repetitions are to occur; e.g. to express &quot;3 times per day&quot;, 3 would be the frequency and &quot;1 day&quot; would be the period.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                Indicates the duration of time over which repetitions are to occur;
+                e.g. to express &quot;3 times per day&quot;, 3 would be the frequency
+                and &quot;1 day&quot; would be the period.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="periodMax" type="decimal" minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">If present, indicates that the period is a range from [period] to [periodMax], allowing expressing concepts such as &quot;do this once every 3-5 days.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                If present, indicates that the period is a range from [period] to
+                [periodMax], allowing expressing concepts such as &quot;do this once
+                every 3-5 days.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="periodUnit" type="UnitsOfTime" minOccurs="0" maxOccurs="1">
@@ -2106,7 +2452,10 @@
           </xs:element>
           <xs:element name="dayOfWeek" type="code" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">If one or more days of week is provided, then the action happens only on the specified day(s).</xs:documentation>
+              <xs:documentation xml:lang="en">
+                If one or more days of week is provided, then the action happens only
+                on the specified day(s).
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="timeOfDay" type="time" minOccurs="0" maxOccurs="unbounded">
@@ -2121,7 +2470,11 @@
           </xs:element>
           <xs:element name="offset" type="unsignedInt" minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The number of minutes from the event. If the event code does not indicate whether the minutes is before or after the event, then the offset is assumed to be after the event.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                The number of minutes from the event. If the event code does not
+                indicate whether the minutes is before or after the event, then the
+                offset is assumed to be after the event.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -2291,29 +2644,50 @@
   <xs:complexType name="ElementDefinition">
     <xs:annotation>
       <xs:documentation xml:lang="en">Captures constraints on each element within the resource, profile, or extension.</xs:documentation>
-      <xs:documentation xml:lang="en">If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions</xs:documentation>
+      <xs:documentation xml:lang="en">
+        If the element is present, it must have a value for at least one of
+        the defined elements, an @id referenced from the Narrative, or
+        extensions
+      </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="Element">
         <xs:sequence>
           <xs:element name="path" type="string" minOccurs="1" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The path identifies the element and is expressed as a &quot;.&quot;-separated list of ancestor elements, beginning with the name of the resource or extension.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                The path identifies the element and is expressed as a
+                &quot;.&quot;-separated list of ancestor elements, beginning with the
+                name of the resource or extension.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="representation" type="PropertyRepresentation" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Codes that define how this element is represented in instances, when the deviation varies from the normal case.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                Codes that define how this element is represented in instances, when
+                the deviation varies from the normal case.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="sliceName" type="string" minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The name of this element definition slice, when slicing is working. The name must be a token with no dots or spaces. This is a unique name referring to a specific set of constraints applied to this element, used to provide a name to different slices of the same element.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                The name of this element definition slice, when slicing is
+                working. The name must be a token with no dots or spaces. This is a
+                unique name referring to a specific set of constraints applied to this
+                element, used to provide a name to different slices of the same
+                element.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="label" type="string" minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A single preferred label which is the text to display beside the element indicating its meaning or to use to prompt for the element in a user display or form.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                A single preferred label which is the text to display beside the
+                element indicating its meaning or to use to prompt for the element in
+                a user display or form.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="code" type="Coding" minOccurs="0" maxOccurs="unbounded">
@@ -2323,7 +2697,16 @@
           </xs:element>
           <xs:element name="slicing" type="ElementDefinition.Slicing" minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Indicates that the element is sliced into a set of alternative definitions (i.e. in a structure definition, there are multiple different constraints on a single element in the base resource). Slicing can be used in any resource that has cardinality ..* on the base resource, or any resource with a choice of types. The set of slices is any elements that come after this in the element sequence that have the same path, until a shorter path occurs (the shorter path terminates the set).</xs:documentation>
+              <xs:documentation xml:lang="en">
+                Indicates that the element is sliced into a set of alternative
+                definitions (i.e. in a structure definition, there are multiple
+                different constraints on a single element in the base
+                resource). Slicing can be used in any resource that has cardinality
+                ..* on the base resource, or any resource with a choice of types. The
+                set of slices is any elements that come after this in the element
+                sequence that have the same path, until a shorter path occurs (the
+                shorter path terminates the set).
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="short" type="string" minOccurs="0" maxOccurs="1">
@@ -2333,17 +2716,32 @@
           </xs:element>
           <xs:element name="definition" type="markdown" minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Provides a complete explanation of the meaning of the data element for human readability.  For the case of elements derived from existing elements (e.g. constraints), the definition SHALL be consistent with the base definition, but convey the meaning of the element in the particular context of use of the resource.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                Provides a complete explanation of the meaning of the data element for
+                human readability.  For the case of elements derived from existing
+                elements (e.g. constraints), the definition SHALL be consistent with
+                the base definition, but convey the meaning of the element in the
+                particular context of use of the resource.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="comment" type="markdown" minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Explanatory notes and implementation guidance about the data element, including notes about how to use the data properly, exceptions to proper use, etc.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                Explanatory notes and implementation guidance about the data element,
+                including notes about how to use the data properly, exceptions to
+                proper use, etc.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="requirements" type="markdown" minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">This element is for traceability of why the element was created and why the constraints exist as they do. This may be used to point to source materials or specifications that drove the structure of this element.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                This element is for traceability of why the element was created and
+                why the constraints exist as they do. This may be used to point to
+                source materials or specifications that drove the structure of this
+                element.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="alias" type="string" minOccurs="0" maxOccurs="unbounded">
@@ -2363,12 +2761,22 @@
           </xs:element>
           <xs:element name="base" type="ElementDefinition.Base" minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Information about the base definition of the element, provided to make it unnecessary for tools to trace the deviation of the element through the derived and related profiles. This information is provided when the element definition is not the original definition of an element - i.g. either in a constraint on another type, or for elements from a super type in a snap shot.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                Information about the base definition of the element, provided to make
+                it unnecessary for tools to trace the deviation of the element through
+                the derived and related profiles. This information is provided when
+                the element definition is not the original definition of an element -
+                i.g. either in a constraint on another type, or for elements from a
+                super type in a snap shot.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="contentReference" type="uri" minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Identifies the identity of an element defined elsewhere in the profile whose content rules should be applied to the current element.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                Identifies the identity of an element defined elsewhere in the profile
+                whose content rules should be applied to the current element.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="type" type="ElementDefinition.Type" minOccurs="0" maxOccurs="unbounded">
@@ -2376,64 +2784,79 @@
               <xs:documentation xml:lang="en">The data type or resource that the value of this element is permitted to be.</xs:documentation>
             </xs:annotation>
           </xs:element>
-        <xs:choice minOccurs="0" maxOccurs="1">
-           <xs:annotation>
-             <xs:documentation xml:lang="en">The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').</xs:documentation>
-           </xs:annotation>
-           <xs:element name="defaultValueBase64Binary" type="base64Binary"/>
-           <xs:element name="defaultValueBoolean" type="boolean"/>
-           <xs:element name="defaultValueCode" type="code"/>
-           <xs:element name="defaultValueDate" type="date"/>
-           <xs:element name="defaultValueDateTime" type="dateTime"/>
-           <xs:element name="defaultValueDecimal" type="decimal"/>
-           <xs:element name="defaultValueId" type="id"/>
-           <xs:element name="defaultValueInstant" type="instant"/>
-           <xs:element name="defaultValueInteger" type="integer"/>
-           <xs:element name="defaultValueMarkdown" type="markdown"/>
-           <xs:element name="defaultValueOid" type="oid"/>
-           <xs:element name="defaultValuePositiveInt" type="positiveInt"/>
-           <xs:element name="defaultValueString" type="string"/>
-           <xs:element name="defaultValueTime" type="time"/>
-           <xs:element name="defaultValueUnsignedInt" type="unsignedInt"/>
-           <xs:element name="defaultValueUri" type="uri"/>
-           <xs:element name="defaultValueAddress" type="Address"/>
-           <xs:element name="defaultValueAge" type="Age"/>
-           <xs:element name="defaultValueAnnotation" type="Annotation"/>
-           <xs:element name="defaultValueAttachment" type="Attachment"/>
-           <xs:element name="defaultValueCodeableConcept" type="CodeableConcept"/>
-           <xs:element name="defaultValueCoding" type="Coding"/>
-           <xs:element name="defaultValueContactPoint" type="ContactPoint"/>
-           <xs:element name="defaultValueCount" type="Count"/>
-           <xs:element name="defaultValueDistance" type="Distance"/>
-           <xs:element name="defaultValueDuration" type="Duration"/>
-           <xs:element name="defaultValueHumanName" type="HumanName"/>
-           <xs:element name="defaultValueIdentifier" type="Identifier"/>
-           <xs:element name="defaultValueMoney" type="Money"/>
-           <xs:element name="defaultValuePeriod" type="Period"/>
-           <xs:element name="defaultValueQuantity" type="Quantity"/>
-           <xs:element name="defaultValueRange" type="Range"/>
-           <xs:element name="defaultValueRatio" type="Ratio"/>
-           <xs:element name="defaultValueReference" type="Reference"/>
-           <xs:element name="defaultValueSampledData" type="SampledData"/>
-           <xs:element name="defaultValueSignature" type="Signature"/>
-           <xs:element name="defaultValueTiming" type="Timing"/>
-           <xs:element name="defaultValueMeta" type="Meta"/>
-         </xs:choice>
+          <xs:choice minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">
+                The value that should be used if there is no value stated in the
+                instance (e.g. 'if not otherwise specified, the abstract is false').
+              </xs:documentation>
+            </xs:annotation>
+            <xs:element name="defaultValueBase64Binary" type="base64Binary"/>
+            <xs:element name="defaultValueBoolean" type="boolean"/>
+            <xs:element name="defaultValueCode" type="code"/>
+            <xs:element name="defaultValueDate" type="date"/>
+            <xs:element name="defaultValueDateTime" type="dateTime"/>
+            <xs:element name="defaultValueDecimal" type="decimal"/>
+            <xs:element name="defaultValueId" type="id"/>
+            <xs:element name="defaultValueInstant" type="instant"/>
+            <xs:element name="defaultValueInteger" type="integer"/>
+            <xs:element name="defaultValueMarkdown" type="markdown"/>
+            <xs:element name="defaultValueOid" type="oid"/>
+            <xs:element name="defaultValuePositiveInt" type="positiveInt"/>
+            <xs:element name="defaultValueString" type="string"/>
+            <xs:element name="defaultValueTime" type="time"/>
+            <xs:element name="defaultValueUnsignedInt" type="unsignedInt"/>
+            <xs:element name="defaultValueUri" type="uri"/>
+            <xs:element name="defaultValueAddress" type="Address"/>
+            <xs:element name="defaultValueAge" type="Age"/>
+            <xs:element name="defaultValueAnnotation" type="Annotation"/>
+            <xs:element name="defaultValueAttachment" type="Attachment"/>
+            <xs:element name="defaultValueCodeableConcept" type="CodeableConcept"/>
+            <xs:element name="defaultValueCoding" type="Coding"/>
+            <xs:element name="defaultValueContactPoint" type="ContactPoint"/>
+            <xs:element name="defaultValueCount" type="Count"/>
+            <xs:element name="defaultValueDistance" type="Distance"/>
+            <xs:element name="defaultValueDuration" type="Duration"/>
+            <xs:element name="defaultValueHumanName" type="HumanName"/>
+            <xs:element name="defaultValueIdentifier" type="Identifier"/>
+            <xs:element name="defaultValueMoney" type="Money"/>
+            <xs:element name="defaultValuePeriod" type="Period"/>
+            <xs:element name="defaultValueQuantity" type="Quantity"/>
+            <xs:element name="defaultValueRange" type="Range"/>
+            <xs:element name="defaultValueRatio" type="Ratio"/>
+            <xs:element name="defaultValueReference" type="Reference"/>
+            <xs:element name="defaultValueSampledData" type="SampledData"/>
+            <xs:element name="defaultValueSignature" type="Signature"/>
+            <xs:element name="defaultValueTiming" type="Timing"/>
+            <xs:element name="defaultValueMeta" type="Meta"/>
+          </xs:choice>
           <xs:element name="meaningWhenMissing" type="markdown" minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The Implicit meaning that is to be understood when this element is missing (e.g. 'when this element is missing, the period is ongoing'.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                The Implicit meaning that is to be understood when this element is
+                missing (e.g. 'when this element is missing, the period is ongoing'.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="orderMeaning" type="string" minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">If present, indicates that the order of the repeating element has meaning and describes what that meaning is.  If absent, it means that the order of the element has no meaning.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                If present, indicates that the order of the repeating element has
+                meaning and describes what that meaning is.  If absent, it means that
+                the order of the element has no meaning.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
-        <xs:choice minOccurs="0" maxOccurs="1">
-           <xs:annotation>
-             <xs:documentation xml:lang="en">Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.</xs:documentation>
-           </xs:annotation>
-           <xs:element name="fixedBase64Binary" type="base64Binary"/>
+          <xs:choice minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">
+                Specifies a value that SHALL be exactly the value for this element in
+                the instance. For purposes of comparison, non-significant whitespace
+                is ignored, and all values must be an exact match (case and accent
+                sensitive). Missing elements/attributes must also be missing.
+              </xs:documentation>
+            </xs:annotation>
+            <xs:element name="fixedBase64Binary" type="base64Binary"/>
            <xs:element name="fixedBoolean" type="boolean"/>
            <xs:element name="fixedCode" type="code"/>
            <xs:element name="fixedDate" type="date"/>
@@ -2473,10 +2896,16 @@
            <xs:element name="fixedMeta" type="Meta"/>
          </xs:choice>
         <xs:choice minOccurs="0" maxOccurs="1">
-           <xs:annotation>
-             <xs:documentation xml:lang="en">Specifies a value that the value in the instance SHALL follow - that is, any value in the pattern must be found in the instance. Other additional values may be found too. This is effectively constraint by example.  The values of elements present in the pattern must match exactly (case-sensitive, accent-sensitive, etc.).</xs:documentation>
-           </xs:annotation>
-           <xs:element name="patternBase64Binary" type="base64Binary"/>
+          <xs:annotation>
+            <xs:documentation xml:lang="en">
+              Specifies a value that the value in the instance SHALL follow - that
+              is, any value in the pattern must be found in the instance. Other
+              additional values may be found too. This is effectively constraint by
+              example.  The values of elements present in the pattern must match
+              exactly (case-sensitive, accent-sensitive, etc.).
+            </xs:documentation>
+          </xs:annotation>
+          <xs:element name="patternBase64Binary" type="base64Binary"/>
            <xs:element name="patternBoolean" type="boolean"/>
            <xs:element name="patternCode" type="code"/>
            <xs:element name="patternDate" type="date"/>
@@ -2514,78 +2943,120 @@
            <xs:element name="patternSignature" type="Signature"/>
            <xs:element name="patternTiming" type="Timing"/>
            <xs:element name="patternMeta" type="Meta"/>
-         </xs:choice>
-          <xs:element name="example" type="ElementDefinition.Example" minOccurs="0" maxOccurs="unbounded">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">A sample value for this element demonstrating the type of information that would typically be found in the element.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:choice minOccurs="0" maxOccurs="1">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">The minimum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.</xs:documentation>
-            </xs:annotation>
-           <xs:element name="minValueDate" type="date"  maxOccurs="1"/>
-           <xs:element name="minValueDateTime" type="dateTime"  maxOccurs="1"/>
-           <xs:element name="minValueInstant" type="instant"  maxOccurs="1"/>
-           <xs:element name="minValueTime" type="time"  maxOccurs="1"/>
-           <xs:element name="minValueDecimal" type="decimal"  maxOccurs="1"/>
-           <xs:element name="minValueInteger" type="integer"  maxOccurs="1"/>
-           <xs:element name="minValuePositiveInt" type="positiveInt"  maxOccurs="1"/>
-           <xs:element name="minValueUnsignedInt" type="unsignedInt"  maxOccurs="1"/>
-           <xs:element name="minValueQuantity" type="Quantity"  maxOccurs="1"/>
-          </xs:choice>
-          <xs:choice minOccurs="0" maxOccurs="1">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">The maximum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.</xs:documentation>
-            </xs:annotation>
-           <xs:element name="maxValueDate" type="date"  maxOccurs="1"/>
-           <xs:element name="maxValueDateTime" type="dateTime"  maxOccurs="1"/>
-           <xs:element name="maxValueInstant" type="instant"  maxOccurs="1"/>
-           <xs:element name="maxValueTime" type="time"  maxOccurs="1"/>
-           <xs:element name="maxValueDecimal" type="decimal"  maxOccurs="1"/>
-           <xs:element name="maxValueInteger" type="integer"  maxOccurs="1"/>
-           <xs:element name="maxValuePositiveInt" type="positiveInt"  maxOccurs="1"/>
-           <xs:element name="maxValueUnsignedInt" type="unsignedInt"  maxOccurs="1"/>
-           <xs:element name="maxValueQuantity" type="Quantity"  maxOccurs="1"/>
-          </xs:choice>
-          <xs:element name="maxLength" type="integer" minOccurs="0" maxOccurs="1">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Indicates the maximum length in characters that is permitted to be present in conformant instances and which is expected to be supported by conformant consumers that support the element.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="condition" type="id" minOccurs="0" maxOccurs="unbounded">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">A reference to an invariant that may make additional statements about the cardinality or value in the instance.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="constraint" type="ElementDefinition.Constraint" minOccurs="0" maxOccurs="unbounded">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Formal constraints such as co-occurrence and other constraints that can be computationally evaluated within the context of the instance.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="mustSupport" type="boolean" minOccurs="0" maxOccurs="1">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">If true, implementations that produce or consume resources SHALL provide &quot;support&quot; for the element in some meaningful way.  If false, the element may be ignored and not supported.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
+        </xs:choice>
+        <xs:element name="example" type="ElementDefinition.Example" minOccurs="0" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">
+              A sample value for this element demonstrating the type of information
+              that would typically be found in the element.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:choice minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">
+              The minimum allowed value for the element. The value is
+              inclusive. This is allowed for the types date, dateTime, instant,
+              time, decimal, integer, and Quantity.
+            </xs:documentation>
+          </xs:annotation>
+          <xs:element name="minValueDate" type="date"  maxOccurs="1"/>
+          <xs:element name="minValueDateTime" type="dateTime"  maxOccurs="1"/>
+          <xs:element name="minValueInstant" type="instant"  maxOccurs="1"/>
+          <xs:element name="minValueTime" type="time"  maxOccurs="1"/>
+          <xs:element name="minValueDecimal" type="decimal"  maxOccurs="1"/>
+          <xs:element name="minValueInteger" type="integer"  maxOccurs="1"/>
+          <xs:element name="minValuePositiveInt" type="positiveInt"  maxOccurs="1"/>
+          <xs:element name="minValueUnsignedInt" type="unsignedInt"  maxOccurs="1"/>
+          <xs:element name="minValueQuantity" type="Quantity"  maxOccurs="1"/>
+        </xs:choice>
+        <xs:choice minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">
+              The maximum allowed value for the element. The value is
+              inclusive. This is allowed for the types date, dateTime, instant,
+              time, decimal, integer, and Quantity.
+            </xs:documentation>
+          </xs:annotation>
+          <xs:element name="maxValueDate" type="date"  maxOccurs="1"/>
+          <xs:element name="maxValueDateTime" type="dateTime"  maxOccurs="1"/>
+          <xs:element name="maxValueInstant" type="instant"  maxOccurs="1"/>
+          <xs:element name="maxValueTime" type="time"  maxOccurs="1"/>
+          <xs:element name="maxValueDecimal" type="decimal"  maxOccurs="1"/>
+          <xs:element name="maxValueInteger" type="integer"  maxOccurs="1"/>
+          <xs:element name="maxValuePositiveInt" type="positiveInt"  maxOccurs="1"/>
+          <xs:element name="maxValueUnsignedInt" type="unsignedInt"  maxOccurs="1"/>
+          <xs:element name="maxValueQuantity" type="Quantity"  maxOccurs="1"/>
+        </xs:choice>
+        <xs:element name="maxLength" type="integer" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">
+              Indicates the maximum length in characters that is permitted to be
+              present in conformant instances and which is expected to be supported
+              by conformant consumers that support the element.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="condition" type="id" minOccurs="0" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">
+              A reference to an invariant that may make additional statements about
+              the cardinality or value in the instance.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="constraint" type="ElementDefinition.Constraint" minOccurs="0" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">
+              Formal constraints such as co-occurrence and other constraints that
+              can be computationally evaluated within the context of the instance.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="mustSupport" type="boolean" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">
+              If true, implementations that produce or consume resources SHALL
+              provide &quot;support&quot; for the element in some meaningful way.
+              If false, the element may be ignored and not supported.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:element>
           <xs:element name="isModifier" type="boolean" minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">If true, the value of this element affects the interpretation of the element or resource that contains it, and the value of the element cannot be ignored. Typically, this is used for status, negation and qualification codes. The effect of this is that the element cannot be ignored by systems: they SHALL either recognize the element and process it, and/or a pre-determination has been made that it is not relevant to their particular system.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                If true, the value of this element affects the interpretation of the
+                element or resource that contains it, and the value of the element
+                cannot be ignored. Typically, this is used for status, negation and
+                qualification codes. The effect of this is that the element cannot be
+                ignored by systems: they SHALL either recognize the element and
+                process it, and/or a pre-determination has been made that it is not
+                relevant to their particular system.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="isSummary" type="boolean" minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Whether the element should be included if a client requests a search with the parameter _summary=true.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                Whether the element should be included if a client requests a search
+                with the parameter _summary=true.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="binding" type="ElementDefinition.Binding" minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Binds to a value set if this element is coded (code, Coding, CodeableConcept, Quantity), or the data types (string, uri).</xs:documentation>
+              <xs:documentation xml:lang="en">
+                Binds to a value set if this element is coded (code, Coding,
+                CodeableConcept, Quantity), or the data types (string, uri).
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="mapping" type="ElementDefinition.Mapping" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Identifies a concept from an external specification that roughly corresponds to this element.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                Identifies a concept from an external specification that roughly
+                corresponds to this element.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -2595,14 +3066,22 @@
   <xs:complexType name="ElementDefinition.Constraint">
     <xs:annotation>
       <xs:documentation xml:lang="en">Captures constraints on each element within the resource, profile, or extension.</xs:documentation>
-      <xs:documentation xml:lang="en">If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions</xs:documentation>
+      <xs:documentation xml:lang="en">
+        If the element is present, it must have a value for at least one of
+        the defined elements, an @id referenced from the Narrative, or
+        extensions
+      </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="Element">
         <xs:sequence>
           <xs:element name="key" type="id" minOccurs="1" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Allows identification of which elements have their cardinalities impacted by the constraint.  Will not be referenced for constraints that do not affect cardinality.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                Allows identification of which elements have their cardinalities
+                impacted by the constraint.  Will not be referenced for constraints
+                that do not affect cardinality.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="requirements" type="string" minOccurs="0" maxOccurs="1">
@@ -2617,17 +3096,26 @@
           </xs:element>
           <xs:element name="human" type="string" minOccurs="1" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Text that can be used to describe the constraint in messages identifying that the constraint has been violated.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                Text that can be used to describe the constraint in messages
+                identifying that the constraint has been violated.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="expression" type="string" minOccurs="1" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A [FHIRPath](http://hl7.org/fluentpath) expression of constraint that can be executed to see if this constraint is met.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                A [FHIRPath](http://hl7.org/fluentpath) expression of constraint that
+                can be executed to see if this constraint is met.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="xpath" type="string" minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">An XPath expression of constraint that can be executed to see if this constraint is met.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                An XPath expression of constraint that can be executed to see if this
+                constraint is met.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="source" type="uri" minOccurs="0" maxOccurs="1">
@@ -2642,7 +3130,11 @@
   <xs:complexType name="ElementDefinition.Mapping">
     <xs:annotation>
       <xs:documentation xml:lang="en">Captures constraints on each element within the resource, profile, or extension.</xs:documentation>
-      <xs:documentation xml:lang="en">If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions</xs:documentation>
+      <xs:documentation xml:lang="en">
+        If the element is present, it must have a value for at least one of
+        the defined elements, an @id referenced from the Narrative, or
+        extensions
+      </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="Element">
@@ -2674,14 +3166,23 @@
   <xs:complexType name="ElementDefinition.Base">
     <xs:annotation>
       <xs:documentation xml:lang="en">Captures constraints on each element within the resource, profile, or extension.</xs:documentation>
-      <xs:documentation xml:lang="en">If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions</xs:documentation>
+      <xs:documentation xml:lang="en">
+        If the element is present, it must have a value for at least one of
+        the defined elements, an @id referenced from the Narrative, or
+        extensions
+      </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="Element">
         <xs:sequence>
           <xs:element name="path" type="string" minOccurs="1" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The Path that identifies the base element - this matches the ElementDefinition.path for that element. Across FHIR, there is only one base definition of any element - that is, an element definition on a [[[StructureDefinition]]] without a StructureDefinition.base.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                The Path that identifies the base element - this matches the
+                ElementDefinition.path for that element. Across FHIR, there is only
+                one base definition of any element - that is, an element definition on
+                a [[[StructureDefinition]]] without a StructureDefinition.base.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="min" type="unsignedInt" minOccurs="1" maxOccurs="1">
@@ -2701,34 +3202,65 @@
   <xs:complexType name="ElementDefinition.Type">
     <xs:annotation>
       <xs:documentation xml:lang="en">Captures constraints on each element within the resource, profile, or extension.</xs:documentation>
-      <xs:documentation xml:lang="en">If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions</xs:documentation>
+      <xs:documentation xml:lang="en">
+        If the element is present, it must have a value for at least one of
+        the defined elements, an @id referenced from the Narrative, or
+        extensions
+      </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="Element">
         <xs:sequence>
           <xs:element name="code" type="uri" minOccurs="1" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">URL of Data type or Resource that is a(or the) type used for this element. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition e.g. &quot;string&quot; is a reference to http://hl7.org/fhir/StructureDefinition/string. Absolute URLs are only allowed in logical models.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                URL of Data type or Resource that is a(or the) type used for this
+                element. References are URLs that are relative to
+                http://hl7.org/fhir/StructureDefinition e.g. &quot;string&quot; is a
+                reference to http://hl7.org/fhir/StructureDefinition/string. Absolute
+                URLs are only allowed in logical models.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="profile" type="uri" minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Identifies a profile structure or implementation Guide that SHALL hold for the datatype this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the resource SHALL conform to at least one profile defined in the implementation guide.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                Identifies a profile structure or implementation Guide that SHALL hold
+                for the datatype this element refers to. Can be a local reference - to
+                a contained StructureDefinition, or a reference to another
+                StructureDefinition or Implementation Guide by a canonical URL. When
+                an implementation guide is specified, the resource SHALL conform to at
+                least one profile defined in the implementation guide.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="targetProfile" type="uri" minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Identifies a profile structure or implementation Guide that SHALL hold for the target of the reference this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the resource SHALL conform to at least one profile defined in the implementation guide.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                Identifies a profile structure or implementation Guide that SHALL hold
+                for the target of the reference this element refers to. Can be a local
+                reference - to a contained StructureDefinition, or a reference to
+                another StructureDefinition or Implementation Guide by a canonical
+                URL. When an implementation guide is specified, the resource SHALL
+                conform to at least one profile defined in the implementation guide.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="aggregation" type="AggregationMode" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">If the type is a reference to another resource, how the resource is or can be aggregated - is it a contained resource, or a reference, and if the context is a bundle, is it included in the bundle.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                If the type is a reference to another resource, how the resource is or
+                can be aggregated - is it a contained resource, or a reference, and if
+                the context is a bundle, is it included in the bundle.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="versioning" type="ReferenceVersionRules" minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Whether this reference needs to be version specific or version independent, or whether either can be used.</xs:documentation>
+              <xs:documentation xml:lang="en">
+                Whether this reference needs to be version specific or version
+                independent, or whether either can be used.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -2738,7 +3270,11 @@
   <xs:complexType name="ElementDefinition.Example">
     <xs:annotation>
       <xs:documentation xml:lang="en">Captures constraints on each element within the resource, profile, or extension.</xs:documentation>
-      <xs:documentation xml:lang="en">If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions</xs:documentation>
+      <xs:documentation xml:lang="en">
+        If the element is present, it must have a value for at least one of
+        the defined elements, an @id referenced from the Narrative, or
+        extensions
+      </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="Element">
